@@ -4,12 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { ToastrModule } from 'ngx-toastr';
+import { authInterceptor } from './core/Interceptor/auth.interceptor';
 
 export function HttpLoaderFactory ( http: HttpClient ) {
 	return new TranslateHttpLoader( http );
@@ -24,15 +25,17 @@ export function HttpLoaderFactory ( http: HttpClient ) {
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		ToastrModule.forRoot(),
-		TranslateModule.forRoot({
-			loader:{
+		TranslateModule.forRoot( {
+			loader: {
 				provide: TranslateLoader,
 				useFactory: HttpLoaderFactory,
-				deps: [HttpClient]
+				deps: [ HttpClient ]
 			}
-		}),
+		} ),
 	],
-	providers: [],
+	providers: [
+		provideHttpClient( withInterceptors( [ authInterceptor ] ) )
+	],
 	bootstrap: [ AppComponent ]
 } )
 export class AppModule { }
