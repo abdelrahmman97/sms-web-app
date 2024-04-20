@@ -27,6 +27,10 @@ export class AuthenticationService {
 		return this.isAuthenticatedSubject.asObservable();
 	}
 
+	isAuthenticatedSubjectValue () {
+		return this.isAuthenticatedSubject.getValue();
+	}
+
 	updateAuthenticationStatus ( isAuthenticated: boolean ) {
 		this.isAuthenticatedSubject.next( isAuthenticated );
 	}
