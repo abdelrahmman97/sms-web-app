@@ -11,6 +11,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { ToastrModule } from 'ngx-toastr';
 import { authInterceptor } from './core/Interceptor/auth.interceptor';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { HeaderComponent } from './shared/header/header.component';
 
 export function HttpLoaderFactory ( http: HttpClient ) {
 	return new TranslateHttpLoader( http );
@@ -18,7 +22,8 @@ export function HttpLoaderFactory ( http: HttpClient ) {
 
 @NgModule( {
 	declarations: [
-		AppComponent
+		AppComponent,
+		HeaderComponent
 	],
 	imports: [
 		BrowserModule,
@@ -32,6 +37,8 @@ export function HttpLoaderFactory ( http: HttpClient ) {
 				deps: [ HttpClient ]
 			}
 		} ),
+		LoadingBarHttpClientModule,
+		LoadingBarRouterModule
 	],
 	providers: [
 		provideHttpClient( withInterceptors( [ authInterceptor ] ) )

@@ -1,0 +1,64 @@
+<div class="content h-100 mx-auto pt-5">
+	<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="w-50">
+		<div class="d-flex flex-column gap-3 w-100">
+
+			<div class="form-group d-flex flex-column gap-2">
+				<label for="Name" class="fs-5">Name</label>
+				<input type="text" formControlName="Name" class="form-control"
+					[ngClass]="{ 'is-invalid': submitted && registerForm.get('Name')?.errors }" />
+				<div *ngIf="submitted && registerForm.get('Name')?.errors" class="invalid-feedback">
+					<div *ngIf="registerForm.get('Name')?.errors?.['required']">Name is required</div>
+				</div>
+			</div>
+
+			<div class="form-group d-flex flex-column gap-2">
+				<label for="UserName" class="fs-5">Username</label>
+				<input type="text" formControlName="UserName" class="form-control"
+					[ngClass]="{ 'is-invalid': submitted && registerForm.get('UserName')?.errors }" />
+				<div *ngIf="submitted && registerForm.get('UserName')?.errors" class="invalid-feedback">
+					<div *ngIf="registerForm.get('UserName')?.errors?.['required']">Username is required</div>
+					<div *ngIf="registerForm.get('UserName')?.errors?.['pattern']">Username is is invalid.
+						<ul class="mt-1">
+							<li class="m-0">
+								<p class="m-0 p-0">It must be 8 or more charachters</p>
+							</li>
+							<li class="m-0">
+								<p class="m-0 p-0">It could have numbers </p>
+							</li>
+							<li class="m-0">
+								<p class="m-0 p-0">It could have special charachters [ &#64; ] </p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group d-flex flex-column gap-2">
+				<label for="Password" class="fs-5">Password</label>
+				<input type="Password" formControlName="Password" class="form-control"
+					[ngClass]="{ 'is-invalid': submitted && registerForm.get('Password')?.errors }" />
+				<div *ngIf="submitted && registerForm.get('Password')?.errors" class="invalid-feedback">
+					<div *ngIf="registerForm.get('Password')?.errors?.['required']">Password is required</div>
+					<div *ngIf="registerForm.get('Password')?.errors?.['length']">Password must be 8 or more charachters
+						<ul class="mt-1">
+							<li class="m-0">
+								<p class="m-0 p-0">It must be 8 or more charachters</p>
+							</li>
+							<li class="m-0">
+								<p class="m-0 p-0">It could have numbers </p>
+							</li>
+							<li class="m-0">
+								<p class="m-0 p-0">It could have special charachters [ . _ &#64; ] </p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary fs-5">Register</button>
+			</div>
+
+		</div>
+	</form>
+</div>
