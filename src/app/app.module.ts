@@ -14,7 +14,7 @@ import { authInterceptor } from './core/Interceptor/auth.interceptor';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { HeaderComponent } from './shared/header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 export function HttpLoaderFactory ( http: HttpClient ) {
 	return new TranslateHttpLoader( http );

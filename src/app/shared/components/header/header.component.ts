@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../../core/services/auth/authentication.service';
-import { IResponse } from '../../core/models/IResponse.Model';
+import { AuthenticationService } from '../../../core/services/auth/authentication.service';
+import { IResponse } from '../../../core/models/IResponse.Model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -29,7 +29,7 @@ export class HeaderComponent {
 
 	onLogout () {
 		this.authService.logout().subscribe( {
-			next: ( response: any ) => {
+			next: ( response: IResponse ) => {
 				if ( response.Success ) {
 					this.authService.removeToken();
 					this.authService.updateAuthenticationStatus( false );
