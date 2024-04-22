@@ -1,0 +1,77 @@
+<div class="d-flex flex-column gap-3 my-5">
+	<div class="d-flex flex-row justify-content-between align-items-center">
+		<p class="fs-4 fw-bold">Students</p>
+		<a class=" btn btn-primary" [routerLink]="['/students/create']">Create new</a>
+	</div>
+
+	<ul class="nav nav-underline bg-body-tertiary px-3">
+		<li class="nav-item">
+			<button class="nav-link" [ngClass]="activeTab==1?'active':''" (click)="setActiveTab(1)">All</button>
+		</li>
+		<li class="nav-item">
+			<button class="nav-link" [ngClass]="activeTab==2?'active':''" (click)="setActiveTab(2)">Created by
+				me</button>
+		</li>
+	</ul>
+
+	<div class="">
+		<input type="search" class="form-control border border-secondary-subtle" placeholder="Search..."
+			[(ngModel)]="searchText" (input)="searchStudents()">
+	</div>
+
+	<div class="card p-2">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Name</th>
+					<th scope="col">Mobile</th>
+					<th scope="col">Email</th>
+					<th scope="col">NationalID</th>
+					<th scope="col">Age</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (student of filteredStudents; track $index) {
+				<tr>
+					<th>{{student.ID}}</th>
+					<td>{{student.Name}}</td>
+					<td>{{student.Mobile}}</td>
+					<td>{{student.Email}}</td>
+					<td>{{student.NationalID}}</td>
+					<td>{{student.Age}}</td>
+					<td>
+						<div class="d-flex gap-2 flex-row">
+							<a [routerLink]="['/students/edit', student.ID]" class="btn btn-secondary">Edit</a>
+							<button class="btn btn-danger" (click)="onDelete(student.ID)">Delete</button>
+						</div>
+					</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+<div class="modal fade" [ngClass]="{'show':ShowDeleteModal}" [style.display]="ShowDeleteModal?'block':''"
+	[style.background-color]="'#00000042'" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Confirm Deletion</h5>
+				<button type="button" class="btn btn-close" (click)="ShowDeleteModal=false"></button>
+			</div>
+			<div class="modal-body">
+				Are you sure you want to delete student with id ({{studentId}}) ?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" (click)="ShowDeleteModal=false">Cancel</button>
+				<button type="button" class="btn btn-danger" (click)="onConfirmDelete()">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>

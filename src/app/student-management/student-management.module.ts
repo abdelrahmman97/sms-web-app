@@ -5,19 +5,20 @@ import { StudentManagementRoutingModule } from './student-management-routing.mod
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
-import { StudentSearchComponent } from './student-search/student-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-@NgModule({
-  declarations: [
-    StudentListComponent,
-    StudentCreateComponent,
-    StudentEditComponent,
-    StudentSearchComponent
-  ],
-  imports: [
-    CommonModule,
-    StudentManagementRoutingModule
-  ]
-})
+@NgModule( {
+	declarations: [
+		StudentListComponent,
+		StudentCreateComponent,
+		StudentEditComponent
+	],
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
+		StudentManagementRoutingModule
+	]
+} )
 export class StudentManagementModule { }

@@ -1,5 +1,5 @@
 export interface IResponse {
-	Data: string | boolean,
+	Data: any,
 	Message: string,
 	Success: boolean,
 	IsAuthorized: boolean,
