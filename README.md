@@ -1,27 +1,202 @@
-# SmsWebApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+# Roboost - SMS
 
-## Development server
+A Student Management System web application using Angular.
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Clone the project
 
-## Code scaffolding
+```bash
+  git clone https://github.com/abdelrahmman97/sms-web-app.git
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Go to the project directory
 
-## Build
+```bash
+  cd sms-web-app
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install dependencies
 
-## Running unit tests
+```bash
+  npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## How to run locally
 
-## Running end-to-end tests
+Start the server
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+  ng serve
+```
+or
 
-## Further help
+```bash
+  ng s -o
+```
+Navigate to ```http://localhost:4200/```
+## Project structure and organization
+```
+sms-web-app/
+|-- src/
+|   |-- app/
+|   |   |-- authentication/
+|   |   |   |-- authentication-routing.module.ts
+|   |   |   |-- authentication.module.ts
+|   |   |   |-- login/
+|   |   |   |-- register/
+|   |   |-- student-management/
+|   |   |   |-- student-management-routing.module.ts
+|   |   |   |-- student-management.module.ts
+|   |   |   |-- student-list/
+|   |   |   |-- student-edit/
+|   |   |   |-- student-create/
+|   |   |-- core
+|   |   |   |-- services/
+|   |   |   |-- models/
+|   |   |   |-- guards/
+|   |   |   |-- interceptor/
+|   |   |-- shared
+|   |   |   |-- components
+|   |   |   |   |-- header/
+|   |   |-- app-routing.module.ts
+|   |   |-- app.module.ts
+|   |   |-- app.component.html
+|   |   |-- app.component.ts
+|   |   |-- app.component.css
+|   |-- assets/
+|   |-- environment/
+|   |-- main.ts
+|   |-- index.html
+|   |-- styles.css
+|-- angular.json
+|-- package.json
+|-- README.md
+|-- tsconfig.json
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## API Reference Used
+
+#### Get all students 
+
+```http
+  GET /Student/Get
+```
+
+
+#### Get all students created by logged in user
+
+```http
+  GET /Student/GetAuthorized
+```
+
+
+#### Get student to show
+
+```http
+  GET /Student/GetByID?id=${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id of student to fetch |
+
+
+#### Get student to edit
+
+```http
+  GET /Student/GetEditableByID?id=${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id of student to fetch |
+
+
+#### Create new student
+
+```http
+  POST /Student/POST
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `FirstName` | `string` | **Required**.  |
+| `LastName` | `string` | **Required**.  |
+| `Mobile` | `string` | **Required**.  |
+| `Email` | `string` | **Required**.  |
+| `NationalID` | `string` | **Required**.  |
+| `Age` | `number` | **Required**.  |
+
+
+#### Edit student
+
+```http
+  PUT /Student/PUT
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `NameArabic` | `string` | **Required**.  |
+| `NameEnglish` | `string` | **Required**.  |
+| `ID` | `number` | **Required**.  |
+| `FirstName` | `string` | **Required**.  |
+| `LastName` | `string` | **Required**.  |
+| `Mobile` | `string` | **Required**.  |
+| `Email` | `string` | **Required**.  |
+| `NationalID` | `string` | **Required**.  |
+| `Age` | `number` | **Required**.  |
+
+
+#### Delet student
+
+```http
+  DELETE /Student/Delete
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `ID` | `number` | **Required**.  Id of student |
+
+
+
+#### User login
+
+```http
+  POST /User/Login
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `UserName` | `string` | **Required**.   |
+| `Password` | `string` | **Required**.   |
+
+
+#### User register
+
+```http
+  POST /User/POST
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `Name` | `string` | **Required**.   |
+| `UserName` | `string` | **Required**.   |
+| `Password` | `string` | **Required**.   |
+
+#### User logout
+
+```http
+  POST /User/Logout
+```
+
+
+## Additional libraries or dependencies used
+
+| library  | link                       |
+| :-------- | :-------------------------------- |
+| `ngx-loading-bar`  | https://github.com/aitboudad/ngx-loading-bar 
+| `ngx-translate` | https://github.com/ngx-translate/core  |
+| `ngx-toastr` | https://github.com/scttcper/ngx-toastr  |
+| `bootstrap` | https://getbootstrap.com/docs/  |
