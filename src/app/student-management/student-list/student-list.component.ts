@@ -33,7 +33,6 @@ export class StudentListComponent implements OnInit {
 		if ( tab == 1 ) {
 			this._studentService.getStudents().subscribe( {
 				next: ( response: IResponse ) => {
-					console.log( response );
 					if ( response.Success ) {
 						this.students = response.Data;
 						this.filteredStudents = response.Data;

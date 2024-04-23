@@ -17,7 +17,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 
 export function HttpLoaderFactory ( http: HttpClient ) {
-	return new TranslateHttpLoader( http );
+	return new TranslateHttpLoader( http, "./assets/i18n/", ".json" );
 }
 
 @NgModule( {
@@ -31,6 +31,7 @@ export function HttpLoaderFactory ( http: HttpClient ) {
 		AppRoutingModule,
 		ToastrModule.forRoot(),
 		TranslateModule.forRoot( {
+			defaultLanguage: 'en',
 			loader: {
 				provide: TranslateLoader,
 				useFactory: HttpLoaderFactory,

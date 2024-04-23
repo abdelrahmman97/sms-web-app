@@ -1,0 +1,48 @@
+{
+	"languages": {
+		"en": "الإنجليزية",
+		"ar": "العربية"
+	},
+	"auth": {
+		"logout": "تسجيل الخروج",
+		"login": "تسجيل الدخول",
+		"register": "التسجيل",
+		"username": "اسم المستخدم",
+		"password": "كلمة المرور",
+		"name": "الاسم",
+		"username_is_required": "اسم المستخدم مطلوب",
+		"username_is_invalid": "اسم المستخدم غير صالح",
+		"password_is_required": "كلمة المرور مطلوبة",
+		"name_is_required": "الاسم مطلوب"
+	},
+	"students": {
+		"students": "الطلاب",
+		"create": "إنشاء",
+		"all": "الكل",
+		"created_by_me": "تم إنشاؤها من قبلي",
+		"search": "بحث",
+		"id": "الرقم",
+		"name": "الاسم",
+		"mobile": "التليفون",
+		"Email": "البريد الإلكتروني",
+		"NationalID": "الرقم الوطني",
+		"Age": "العمر",
+		"ArabicName": "الاسم بالعربية",
+		"EnglishName": "الاسم بالإنجليزية",
+		"FirstName": "الاسم الأول",
+		"LastName": "الاسم الأخير",
+		"Edit": "تعديل",
+		"Delete": "حذف",
+		"confirm_delete": "تأكيد الحذف",
+		"confirm_delete_msg": "هل أنت متأكد أنك تريد حذف الطالب برقم",
+		"Cancel": "إلغاء",
+		"Confirm": "تأكيد",
+		"Edit_Student": "تعديل الطالب",
+		"ar_name_required": "الاسم بالعربية مطلوب",
+		"ar_name_invalid": "الاسم بالعربية غير صالح",
+		"en_name_required": "الاسم بالإنجليزية مطلوب",
+		"en_name_invalid": "الاسم بالإنجليزية غير صالح",
+		"First_name_required": "الاسم الأول مطلوب",
+		"Last_name_required": "الاسم الأخير مطلوب"
+	}
+}

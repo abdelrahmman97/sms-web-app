@@ -1,30 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../core/services/auth/authentication.service';
 import { IResponse } from '../../../core/models/IResponse.Model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LanguageService } from '../../../core/services/language/language.service';
 
 @Component( {
 	selector: 'app-header',
 	templateUrl: './header.component.html',
 	styleUrl: './header.component.css'
 } )
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
 	title = 'Roboost - SMS';
 	isAuthenticated: boolean = false;
+	selectedLanguage: string = "en";
+	langs: any[] = [];
 
 	constructor (
 		private authService: AuthenticationService,
 		private router: Router,
-		private toaster: ToastrService
+		private toaster: ToastrService,
+		private langService: LanguageService
 	) {
-
 		this.authService.isAuthenticated().subscribe( {
 			next: ( value ) => {
-				console.log(value);
 				this.isAuthenticated = value;
 			},
 		} );
+	}
+
+	ngOnInit (): void {
+		this.getSelectedLang();
 	}
 
 	onLogout () {
@@ -44,5 +51,18 @@ export class HeaderComponent {
 				this.toaster.error( response?.error.message, "Error" );
 			}
 		} )
+	}
+
+	setLanguage ( lang: string ) {
+		this.langService.setCurrentLanguage( lang );
+		this.getSelectedLang();
+	}
+
+	getSelectedLang () {
+		this.langService.language$.subscribe( {
+			next: ( value: string ) => {
+				this.selectedLanguage = value
+			}
+		} );
 	}
 }

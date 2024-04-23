@@ -3,21 +3,30 @@
 		<div class="d-flex flex-column gap-3 w-100">
 
 			<div class="form-group d-flex flex-column gap-2">
-				<label for="Name" class="fs-5">Name</label>
+				<label for="Name" class="fs-5">
+					{{ "auth.name" | translate }}
+				</label>
 				<input type="text" formControlName="Name" class="form-control"
 					[ngClass]="{ 'is-invalid': submitted && registerForm.get('Name')?.errors }" />
 				<div *ngIf="submitted && registerForm.get('Name')?.errors" class="invalid-feedback">
-					<div *ngIf="registerForm.get('Name')?.errors?.['required']">Name is required</div>
+					<div *ngIf="registerForm.get('Name')?.errors?.['required']">
+						{{ "auth.name_is_required" | translate }}
+					</div>
 				</div>
 			</div>
 
 			<div class="form-group d-flex flex-column gap-2">
-				<label for="UserName" class="fs-5">Username</label>
+				<label for="UserName" class="fs-5">
+					{{ "auth.username" | translate }}
+				</label>
 				<input type="text" formControlName="UserName" class="form-control"
 					[ngClass]="{ 'is-invalid': submitted && registerForm.get('UserName')?.errors }" />
 				<div *ngIf="submitted && registerForm.get('UserName')?.errors" class="invalid-feedback">
-					<div *ngIf="registerForm.get('UserName')?.errors?.['required']">Username is required</div>
-					<div *ngIf="registerForm.get('UserName')?.errors?.['pattern']">Username is is invalid.
+					<div *ngIf="registerForm.get('UserName')?.errors?.['required']">
+						{{ "auth.username_is_required" | translate }}
+					</div>
+					<div *ngIf="registerForm.get('UserName')?.errors?.['pattern']">
+						{{ "auth.username_is_invalid" | translate }}
 						<ul class="mt-1">
 							<li class="m-0">
 								<p class="m-0 p-0">It must be 8 or more charachters</p>
@@ -34,11 +43,14 @@
 			</div>
 
 			<div class="form-group d-flex flex-column gap-2">
-				<label for="Password" class="fs-5">Password</label>
+				<label for="Password" class="fs-5">
+					{{ "auth.password" | translate }}
+				</label>
 				<input type="Password" formControlName="Password" class="form-control"
 					[ngClass]="{ 'is-invalid': submitted && registerForm.get('Password')?.errors }" />
 				<div *ngIf="submitted && registerForm.get('Password')?.errors" class="invalid-feedback">
-					<div *ngIf="registerForm.get('Password')?.errors?.['required']">Password is required</div>
+					<div *ngIf="registerForm.get('Password')?.errors?.['required']">
+						{{ "auth.password_is_required" | translate }}</div>
 					<div *ngIf="registerForm.get('Password')?.errors?.['length']">Password must be 8 or more charachters
 						<ul class="mt-1">
 							<li class="m-0">
@@ -56,7 +68,9 @@
 			</div>
 
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary fs-5">Register</button>
+				<button type="submit" class="btn btn-primary fs-5">
+					{{ "auth.register" | translate }}
+				</button>
 			</div>
 
 		</div>

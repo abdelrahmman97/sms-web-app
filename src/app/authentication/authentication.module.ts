@@ -5,6 +5,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule( {
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 		CommonModule,
 		AuthenticationRoutingModule,
 		ReactiveFormsModule,
+		TranslateModule,
 	]
 } )
 export class AuthenticationModule { }

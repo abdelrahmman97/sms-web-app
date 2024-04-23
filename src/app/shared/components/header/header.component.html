@@ -1,24 +1,46 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
 	<div class="container-fluid">
 		<a class="navbar-brand fs-3" href="/">{{title}}</a>
-	</div>
-	<div class="collapse navbar-collapse">
-		@if (isAuthenticated) {
-		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			<li class="nav-item">
-				<button class="nav-link fs-5" (click)="onLogout()">Logout</button>
-			</li>
-		</ul>
-		}
-		@else {
-		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			<li class="nav-item">
-				<a class="nav-link fs-5" [routerLink]="['/auth/login']" routerLinkActive="active">login</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link fs-5" [routerLink]="['/auth/register']" routerLinkActive="active">register</a>
-			</li>
-		</ul>
-		}
+		<div class="d-flex align-items-center">
+			<div class="dropdown">
+				<button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					{{selectedLanguage}}
+				</button>
+				<ul class="dropdown-menu">
+					<li>
+						<button class="dropdown-item" (click)="setLanguage('en')">
+							{{ "languages.en" | translate }}</button>
+					</li>
+					<li>
+						<button class="dropdown-item" (click)="setLanguage('ar')">
+							{{ "languages.ar" | translate }}
+						</button>
+					</li>
+				</ul>
+			</div>
+			@if (isAuthenticated) {
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<button class="nav-link fs-5" (click)="onLogout()">
+						{{ "auth.logout" | translate }}
+					</button>
+				</li>
+			</ul>
+			}
+			@else {
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link fs-5" [routerLink]="['/auth/login']" routerLinkActive="active">
+						{{ "auth.login" | translate }}
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link fs-5" [routerLink]="['/auth/register']" routerLinkActive="active">
+						{{ "auth.register" | translate }}
+					</a>
+				</li>
+			</ul>
+			}
+		</div>
 	</div>
 </nav>

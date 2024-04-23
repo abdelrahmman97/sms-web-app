@@ -1,0 +1,48 @@
+{
+	"languages": {
+		"en": "English",
+		"ar": "العربية"
+	},
+	"auth": {
+		"logout": "Logout",
+		"login": "Login",
+		"register": "Register",
+		"username": "Username",
+		"password": "Password",
+		"name": "Name",
+		"username_is_required": "Username is required",
+		"username_is_invalid": "Username is invalid",
+		"password_is_required": "Password is required",
+		"name_is_required": "Name is required"
+	},
+	"students": {
+		"students": "Students",
+		"create": "Create",
+		"all": "All",
+		"created_by_me": "Created by me",
+		"search":"Search",
+		"id":"ID",
+		"name":"Name",
+		"mobile":"Mobile",
+		"Email":"Email",
+		"NationalID":"National ID",
+		"Age": "Age",
+		"ArabicName": "Arabic Name",
+		"EnglishName": "English Name",
+		"FirstName": "First Name",
+		"LastName": "Last Name",
+		"Edit": "Edit",
+		"Delete": "Delete",
+		"confirm_delete": "Confirm Deletion",
+		"confirm_delete_msg": "Are you sure you want to delete student with id",
+		"Cancel": "Cancel",
+		"Confirm": "Confirm",
+		"Edit_Student": "Edit Student",
+		"ar_name_required": "Arabic Name is required",
+		"ar_name_invalid": "Arabic Name is invalid",
+		"en_name_required": "English Name is required",
+		"en_name_invalid": "English Name is invalid",
+		"First_name_required": "First Name is required",
+		"Last_name_required": "Last Name is required"
+	}
+}

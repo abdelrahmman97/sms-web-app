@@ -1,6 +1,8 @@
 <div class="card my-5 p-3 mx-auto w-50">
 
-	<h2 class="mb-4">Edit Student</h2>
+	<h2 class="mb-4">
+		{{ "students.Edit_Student" | translate }}
+	</h2>
 
 	<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="needs-validation" *ngIf="visible">
 
@@ -9,22 +11,34 @@
 			<div class="form-floating mb-3 col">
 				<input type="text" class="form-control" id="NameArabic" formControlName="NameArabic" required
 					[ngClass]="{ 'is-invalid': studentForm.get('NameArabic')?.errors && studentForm.get('NameArabic')?.touched }">
-				<label for="name" class="form-label">Arabic Name</label>
+				<label for="name" class="form-label">
+					{{ "students.ArabicName" | translate }}
+				</label>
 				<div *ngIf="studentForm.get('NameArabic')?.invalid && studentForm.get('NameArabic')?.touched && submited"
 					class="invalid-feedback">
-					<div *ngIf="studentForm.get('NameArabic')?.errors?.['required']">Arabic Name is required</div>
-					<div *ngIf="studentForm.get('NameArabic')?.errors?.['pattern']">Arabic Name is invalid</div>
+					<div *ngIf="studentForm.get('NameArabic')?.errors?.['required']">
+						{{ "students.ar_name_required" | translate }}
+					</div>
+					<div *ngIf="studentForm.get('NameArabic')?.errors?.['pattern']">
+						{{ "students.ar_name_invalid" | translate }}
+					</div>
 				</div>
 			</div>
 
 			<div class="form-floating mb-3 col">
 				<input type="text" class="form-control" id="NameEnglish" formControlName="NameEnglish" required
 					[ngClass]="{ 'is-invalid': studentForm.get('NameEnglish')?.errors && studentForm.get('NameEnglish')?.touched }">
-				<label for="name" class="form-label">English Name</label>
+				<label for="name" class="form-label">
+					{{ "students.EnglishName" | translate }}
+				</label>
 				<div *ngIf="studentForm.get('NameEnglish')?.invalid && studentForm.get('NameEnglish')?.touched"
 					class="invalid-feedback">
-					<div *ngIf="studentForm.get('NameEnglish')?.errors?.['required']">English Name is required</div>
-					<div *ngIf="studentForm.get('NameEnglish')?.errors?.['pattern']">English Name is invalid</div>
+					<div *ngIf="studentForm.get('NameEnglish')?.errors?.['required']">
+						{{ "students.en_name_required" | translate }}
+					</div>
+					<div *ngIf="studentForm.get('NameEnglish')?.errors?.['pattern']">
+						{{ "students.en_name_invalid" | translate }}
+					</div>
 				</div>
 			</div>
 
@@ -35,20 +49,24 @@
 			<div class="form-floating mb-3 col">
 				<input type="text" class="form-control" id="FirstName" formControlName="FirstName" required
 					[ngClass]="{ 'is-invalid': studentForm.get('FirstName')?.errors && studentForm.get('FirstName')?.touched }">
-				<label for="name" class="form-label">First Name</label>
+				<label for="name" class="form-label">
+					{{ "students.FirstName" | translate }}
+				</label>
 				<div *ngIf="studentForm.get('FirstName')?.invalid && studentForm.get('FirstName')?.touched"
 					class="invalid-feedback">
-					First Name is required
+					{{ "students.First_name_required" | translate }}
 				</div>
 			</div>
 
 			<div class="form-floating mb-3 col">
 				<input type="text" class="form-control" id="LastName" formControlName="LastName" required
 					[ngClass]="{ 'is-invalid': studentForm.get('LastName')?.errors && studentForm.get('LastName')?.touched }">
-				<label for="name" class="form-label">Last Name</label>
+				<label for="name" class="form-label">
+					{{ "students.LastName" | translate }}
+				</label>
 				<div *ngIf="studentForm.get('LastName')?.invalid && studentForm.get('LastName')?.touched"
 					class="invalid-feedback">
-					Last Name is required
+					{{ "students.Last_name_required" | translate }}
 				</div>
 			</div>
 
@@ -57,7 +75,9 @@
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="Mobile" formControlName="Mobile" required
 				[ngClass]="{ 'is-invalid': studentForm.get('Mobile')?.errors && studentForm.get('Mobile')?.touched }">
-			<label for="Mobile" class="form-label">Mobile</label>
+			<label for="Mobile" class="form-label">
+				{{ "students.mobile" | translate }}
+			</label>
 			<div *ngIf="studentForm.get('Mobile')?.errors && studentForm.get('Mobile')?.touched"
 				class="invalid-feedback">
 				<div *ngIf="studentForm.get('Mobile')?.errors?.['required']">Mobile number is required</div>
@@ -68,7 +88,9 @@
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="Email" formControlName="Email" required
 				[ngClass]="{ 'is-invalid': studentForm.get('Email')?.errors && studentForm.get('Email')?.touched }">
-			<label for="Email" class="form-label">Email</label>
+			<label for="Email" class="form-label">
+				{{ "students.Email" | translate }}
+			</label>
 			<div *ngIf="studentForm.get('Email')?.invalid && studentForm.get('Email')?.touched"
 				class="invalid-feedback">
 				<div *ngIf="studentForm.get('Email')?.errors?.['required']">Email is required</div>
@@ -79,7 +101,9 @@
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="NationalID" formControlName="NationalID" required
 				[ngClass]="{ 'is-invalid': studentForm.get('NationalID')?.errors && studentForm.get('NationalID')?.touched }">
-			<label for="NationalID" class="form-label">National ID</label>
+			<label for="NationalID" class="form-label">
+				{{ "students.NationalID" | translate }}
+			</label>
 			<div *ngIf="studentForm.get('NationalID')?.invalid && studentForm.get('NationalID')?.touched"
 				class="invalid-feedback">
 				<div *ngIf="studentForm.get('NationalID')?.errors?.['required']">National ID is required</div>
@@ -90,14 +114,18 @@
 		<div class="form-floating mb-3">
 			<input type="number" class="form-control" id="Age" formControlName="Age" required
 				[ngClass]="{ 'is-invalid': studentForm.get('Age')?.errors && studentForm.get('Age')?.touched }">
-			<label for="Age" class="form-label">Age</label>
+			<label for="Age" class="form-label">
+				{{ "students.Age" | translate }}
+			</label>
 			<div *ngIf="studentForm.get('Age')?.invalid && studentForm.get('Age')?.touched" class="invalid-feedback">
 				<div *ngIf="studentForm.get('Age')?.errors?.['required']">Age is required</div>
 				<div *ngIf="studentForm.get('Age')?.errors?.['pattern']">Age must be 2 digits and more than 18</div>
 			</div>
 		</div>
 
-		<button type="submit" class="btn btn-primary w-100" [ngClass]="submited? 'disabled':''">Edit</button>
+		<button type="submit" class="btn btn-primary w-100" [ngClass]="submited? 'disabled':''">
+			{{ "students.Edit" | translate }}
+		</button>
 
 	</form>
 </div>
